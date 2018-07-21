@@ -16,4 +16,8 @@ export class LogsComponent implements OnInit {
     this.logs = this.logService.getLogList();
   }
 
+  onLogClick(log: Log) {
+    this.logService.setFormLog(log);
+  }
+
 }
