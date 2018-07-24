@@ -20,4 +20,8 @@ export class LogsComponent implements OnInit {
     this.logService.setFormLog(log);
   }
 
+  deleteLog(log: Log) {
+    this.logService.deleteLog(log);
+  }
+
 }
