@@ -23,10 +23,13 @@ export class LogService {
     }, {
       id: '3', text: 'Genrate Logs', date: new Date('12/27/2017 2:13:14')
     }];
+
+    // this.logs = [];
+
    }
 
    getLogList() {
-     return this.logs;
+     return of(this.logs);
    }
 
    setFormLog(log: Log) {

@@ -1,4 +1,4 @@
-<ul class="list-group">
+<ul class="list-group" *ngIf="isDataLoaded && logs.length > 0">
 <li *ngFor="let log of logs" class="list-group-item d-flex justify-content-between align-item -center" [class.list-group-item-secondary]="log.id === selectedLog?.id">
  <!-- [ngClass]="{'active': log.id === selectedLog?.id}" -->
     <a (click)="onLogClick(log)" class="log-text">{{log.text}}</a>
@@ -6,3 +6,11 @@
     <i class="fa fa-remove" (click)="deleteLog(log)"></i>
   </li>
 </ul>
+
+<div *ngIf="isDataLoaded && logs.length === 0">
+  <h5>You dont have any logs.</h5>
+</div>
+
+<div *ngIf="!isDataLoaded">
+<h5>Loading...</h5>  
+</div>

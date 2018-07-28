@@ -10,12 +10,16 @@ export class LogsComponent implements OnInit {
 
   logs: Log[];
   selectedLog: Log;
+  isDataLoaded = false;
 
   constructor(private logService: LogService) { }
 
   ngOnInit() {
     this.stateChangeEvent();
-    this.logs = this.logService.getLogList();
+    this.logService.getLogList().subscribe((logList: Log[]) => {
+      this.logs = logList;
+      this.isDataLoaded = true;
+    });
   }
 
   onLogClick(log: Log) {
