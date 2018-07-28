@@ -12,6 +12,9 @@ export class LogService {
   private logSource = new BehaviorSubject<Log>({id: null, text: null, date: null});
   selectLog = this.logSource.asObservable();
 
+  private stateSource = new BehaviorSubject<boolean>(true);
+  stateChange = this.stateSource.asObservable();
+
   constructor() {
     this.logs = [{
       id: '1', text: 'Genrate Combonents', date: new Date('12/27/2017 12:13:14')
@@ -49,6 +52,10 @@ export class LogService {
         this.logs.splice(index, 1);
       }
     });
+   }
+
+   changeState() {
+     this.stateSource.next(true);
    }
 
 }

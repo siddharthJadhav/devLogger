@@ -4,3 +4,6 @@
 .log-text{
   color: #007bff !important;
 }
+.active {
+  background-color: #796e6e57;
+}
