@@ -28,7 +28,7 @@ export class LogFormComponent implements OnInit {
     });
   }
 
-  addLog(log: Log) {
+  addLog() {
     if (this.isNewLog) {
       const newLog: Log = {
         id: this.getUniqueId(),
@@ -37,7 +37,6 @@ export class LogFormComponent implements OnInit {
       };
       console.log('new Log : ', newLog);
       this.logService.addLog(newLog);
-      this.text = '';
     } else {
       const updatedLog: Log = {
         id: this.id,
